@@ -67,8 +67,4 @@ test:
         - localhost:27017
 
 production:
-  sessions:
-    default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
-      hosts:
-        - "<%= ENV["MONGOID_HOST"] %>:<%= ENV["MONGOID_PORT"] %>"
+  uri: <%= ENV['MONGOLAB_URI'] %>
