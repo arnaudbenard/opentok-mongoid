@@ -16,8 +16,7 @@ class RoomsController < ApplicationController
       if @new_room.save
         format.html { redirect_to("/party/"+@new_room.id.to_s) }
       else
-        format.html { render :controller => 'rooms',
-               :action => "index" }
+        format.html { render :controller => 'rooms', :action => "index" }
       end
     end
   end
@@ -27,16 +26,13 @@ class RoomsController < ApplicationController
 
     config_opentok
 
-    @tok_token = @opentok.generate_token :session_id =>
-          @room.sessionId
+    @tok_token = @opentok.generate_token :session_id => @room.sessionId
   end
 
   private
   def config_opentok
     if @opentok.nil?
-    	@api_key ='17075832'
-    	@api_secret = "064b64e0f5c46629e209882a8cee6d63124a3619"
-      	@opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
+      	@opentok = OpenTok::OpenTokSDK.new 17075832, "064b64e0f5c46629e209882a8cee6d63124a3619"
     end
   end
 end
