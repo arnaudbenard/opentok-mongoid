@@ -12,7 +12,6 @@ require "uri"
 	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 	response = http.request(Net::HTTP::Get.new(uri.request_uri))
 	@doc = Nokogiri::XML(response.body)
-	@doc.xpath("/response/ticket").first.content
-
+	@response=@doc.xpath("/response/ticket").first.content
   end
 end

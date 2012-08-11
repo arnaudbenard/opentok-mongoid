@@ -2,9 +2,11 @@ index.html.erb
 
 <%= render 'rooms/newform' %>
 
-<%=@response %>
+	<a href="https://www.box.com/api/1.0/auth/<%=@response%>">resp</a>
 <% @rooms.each do |room| %>
 	<a href="/party/<%= room.id %>"><%= room.name %></a>
 <%end%>
 new_rooms
  <%= link_to "new room", new_rooms_path, :method => :get%>
+
+ <%= link_to "registration", new_user_registration_path %>

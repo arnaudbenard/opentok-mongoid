@@ -9,6 +9,7 @@ gem "mongoid", "~> 3.0.0"
 gem 'opentok'
 gem "box-api"
 gem "nokogiri"
+gem "devise"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
