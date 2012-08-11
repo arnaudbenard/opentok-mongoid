@@ -2,7 +2,7 @@ index.html.erb
 
 <%= render 'rooms/newform' %>
 
-
+<%=@response %>
 <% @rooms.each do |room| %>
 	<a href="/party/<%= room.id %>"><%= room.name %></a>
 <%end%>

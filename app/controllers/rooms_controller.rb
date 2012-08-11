@@ -1,8 +1,12 @@
 class RoomsController < ApplicationController
+  include BoxHelper
 
   def index
+
     @rooms = Room.where(:public => true).order_by([:timestamp,:desc])
-	@new_room = Room.new
+    @new_room = Room.new
+    @response=get_ticket
+
   end
 
   def create
