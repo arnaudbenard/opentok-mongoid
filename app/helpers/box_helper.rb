@@ -27,8 +27,5 @@ require "uri"
 	@doc = Nokogiri::XML(response.body)
 	@response=@doc.xpath("/response/auth_token").first.content
 	user.update_attributes(auth: @response)
-	
-	#@doc = Nokogiri::XML(response.body)
-	#@response=@doc.xpath("/response/ticket").first.content
   end
 end
