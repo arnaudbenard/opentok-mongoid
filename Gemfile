@@ -6,8 +6,6 @@ gem 'rails', '3.2.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "mongoid", "~> 2.4"
-gem "bson_ext", "~> 1.5"
-
 gem 'opentok'
 gem "box-api"
 gem "nokogiri"
