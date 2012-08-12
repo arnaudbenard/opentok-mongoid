@@ -1,11 +1,11 @@
-development: &defaults
+development:
   # Configure available database sessions. (required)
   sessions:
     # Defines the default session. (required)
-    default: &default_session
+    default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: delight_development
+      database: echo_dev
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -18,7 +18,7 @@ development: &defaults
         # Change the default consistency model to :eventual or :strong.
         # :eventual will send reads to secondaries, :strong sends everything
         # to master. (default: :eventual)
-        # consistency: :strong
+        consistency: :strong
   # Configure Mongoid specific options. (optional)
   options:
     # Configuration for whether or not to allow access to fields that do
@@ -36,14 +36,14 @@ development: &defaults
 
     # Preload all models in development, needed when models use
     # inheritance. (default: false)
-    preload_models: true
+    # preload_models: false
 
     # Protect id and type from mass assignment. (default: true)
     # protect_sensitive_fields: true
 
     # Raise an error when performing a #find and the document is not found.
     # (default: true)
-    raise_not_found_error: false
+    # raise_not_found_error: true
 
     # Raise an error when defining a scope with the same name as an
     # existing method. (default: false)
@@ -60,22 +60,16 @@ development: &defaults
     # use_utc: false
 
 test:
-  <<: *defaults
   sessions:
     default:
-      <<: *default_session
-      database: delight_test
-
-<% if ENV['MONGOLAB_URI'] %>
-  <% uri = URI.parse(ENV['MONGOLAB_URI']) %>
-production:
-  <<: *defaults
-  sessions:
-    default:
-      <<: *default_session
-      database: <%= uri.path.sub('/','') %>
-      username: <%= uri.user %>
-      password: <%= uri.password %>
+      database: echo_test
       hosts:
-        - <%= uri.host %>:<%= uri.port %>
-<% end %>
+        - localhost:27017
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+      options:
+        skip_version_check: true
+        safe: true
