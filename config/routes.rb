@@ -5,6 +5,12 @@ Opentok::Application.routes.draw do
   # first created -> highest priority.
   resource :rooms
   match '/party/:id', :to => "rooms#party", :as => :party, :via => :get
+  resources :users do 
+    member do
+      get :find_ticket
+      get :auth
+    end
+  end
   #match 'https://www.box.com/api/1.0/rest?action=get_ticket&api_key={x0dcfl3a1vjc56j0sg6cytjfm3dt5r05}', :via => :get
 
   # Sample of regular route:

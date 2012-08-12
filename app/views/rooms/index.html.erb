@@ -2,11 +2,16 @@ index.html.erb
 
 <%= render 'rooms/newform' %>
 
-	<a href="https://www.box.com/api/1.0/auth/<%=@response%>">resp</a>
 <% @rooms.each do |room| %>
 	<a href="/party/<%= room.id %>"><%= room.name %></a>
 <%end%>
 new_rooms
  <%= link_to "new room", new_rooms_path, :method => :get%>
+<%=link_to("Logout", destroy_user_session_path, :method => :delete)%>
+  <%= link_to('Login', new_user_session_path)  %>  
 
  <%= link_to "registration", new_user_registration_path %>
+
+<% if user_signed_in? %><%= link_to "Auth", user_path(current_user) %> <%end%>
+
+
