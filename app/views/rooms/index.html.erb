@@ -2,9 +2,9 @@ index.html.erb
 
 <%= render 'rooms/newform' %>
 
-<% @rooms.each do |room| %>
-	<a href="/party/<%= room.id %>"><%= room.name %></a>
-<%end%>
+	<% @rooms.each do |room| %>
+		<a href="/party/<%= room.id %>"><%= room.name %></a>
+	<%end%>
 new_rooms
  <%= link_to "new room", new_rooms_path, :method => :get%>
 <%=link_to("Logout", destroy_user_session_path, :method => :delete)%>
