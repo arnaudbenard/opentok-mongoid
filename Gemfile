@@ -5,7 +5,7 @@ gem 'rails', '3.2.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem "mongoid", "~> 2.4"
+gem "mongoid", :git => "git@github.com:mongoid/mongoid.git"
 gem 'opentok'
 gem "box-api"
 gem "nokogiri"
