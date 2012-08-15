@@ -1,4 +1,4 @@
 == Opentok API Rails + Mongoid
 
-- Integration of Opentok API with mongoid (MongoDV wrapper)
+- Integration of Opentok API with mongoid (MongoDB wrapper)
 - mongoid.yml configuration for Mongolab on Heroku
